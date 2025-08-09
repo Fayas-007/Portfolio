@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="Style/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Six+Caps&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Liter&display=swap" rel="stylesheet">
+</head>
+<body >
+
+  <button id="theme-switch" aria-label="Change-theme">
+    <i class="fa-regular fa-moon"></i>
+    <i class="fa-regular fa-sun"></i>
+  </button>
+
+  <button id="scrollToTopBtn" title="Go to top">↑</button>
+
+    <div class="navbar" id ="Front">
+        <div class="logo">FAYAS</div>
+        <ul>
+            <li><a href="#intro" target="_self">Intro</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects-title">Projects</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#feedback">Feedback</a></li>
+        </ul>
+        <!-- Hamburger menu for mobile -->
+        <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+    </div>
+    
+
+
+    <div class="greetings" id ="Front">
+        <div class="download-cv">
+            <a href="Data/Mohamed Fayas.pdf" download>
+                <button class="download-btn" aria-label="Download my CV">Download My CV</button>
+            </a>
+        </div>
+        
+        <h2>Welcome to my</h2>
+        <h1> portfolio </h1> 
+    </div>
+
+
+    <section class="intro">
+        <div class="intro-left">
+          <img src="Images/welcome-01.jpg" alt="">
+        </div>
+        <div class="intro-middle">
+          <h2>"Curious. Create. Repeat."</h2>
+          <p> I strongly believe in creating meaningful and user-friendly digital experiences and develop solutions that make a difference and help businesses grow. 🚀</p>
+        </div>
+        <div class="intro-right">
+          <img src="Images/welcome-02.jpg" alt="">
+        </div>
+      </section>
+  
+      <section class="about-me" id="about">
+        <img class="about-img" src="Images/Profile-pic.png"  alt="Profile picture of Mohamed Fayas">
+        <h1 class="about-title">Mohamed Fayas</h1>
+        <h2 class="about-subtitle">Software Designer & Developer</h2>
+
+        <div class="icons">
+          <a href="https://www.linkedin.com/in/mohamed-fayas-23bba7334/" target="_blank" alt ="linkedin"><i class="fa-brands fa-linkedin"></i></a>
+          <a href="https://github.com/Fayas-007" target="_blank" alt ="Git-Hub"><i class="fa-brands fa-github"></i></i></a> 
+        </div>
+
+        <div class="about-text">
+          <p>
+            Hi, I’m <span id="Highlight">Fayas!</span> After completing my school studies, I joined ICBT College to pursue Software Engineering. 
+            I recently earned my HND in Software Engineering and am now advancing my skills with a Degree in Data Science.
+            As a Software Engineer and aspiring Data Scientist, I love solving problems, building innovative solutions, and turning data into insights. 
+          </p>
+
+          <p>
+            I’m skilled in programming, algorithms, and software development, and I’m growing my expertise in data analysis, machine learning, and statistical modeling.
+          </p>
+
+          <p>
+            I enjoy working with tools like Python, R, SQL, and frameworks like TensorFlow and PyTorch. 
+            I’m also passionate about data visualization and creating impactful stories through data.</p>
+
+          <p class="center-bold">
+            Let’s connect and create something amazing together!
+          </p>  
+        
+           
+        </div>
+      </section>
+
+      <!-- Projects section -->
+      <h1 class="grid-title" id="projects-title">Explore My Work</h1>
+      <div class="portfolio-grid" id="projects">
+        
+        <!-- Project 1 -->
+        <div class="project-item">
+            <img src="Vedios/Gym-gif.gif" alt="Website for a GYM." class="project-gif" >
+            <div class="project-info">
+                <h3>Gym Website</h3>
+                <p>This gym website was built as a prototype to illustrate my process in designing and developing a fully responsive and interactive website, demonstrating my web development skills.</p>
+            </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-item">
+            <img src="Vedios/Res-gif.gif" alt="Website for a Resturant." class="project-gif" >
+            <div class="project-info">
+                <h3>Resturant Website</h3>
+                <p>I've created a restaurant website as a sample project to demonstrate my web development skills and design approach.</p>
+            </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="project-item">
+          <img src="Images/R_Picv.png" alt="Statistical Analysis Using R" class="project-gif">
+          <div class="project-info">
+              <h3>R Project</h3>
+              <p> Analyzed 1971 Canadian census data using R and Excel to explore factors influencing occupational prestige through statistical techniques. </p>
+          </div>
+      </div>
+      
+
+        <!-- Project 4 -->
+        <div class="project-item">
+            <img src="Images/header-bg.png" alt="Project 3" class="project-gif" >
+            <div class="project-info">
+                <h3>Project 3</h3>
+                <p>This is a brief description of Project 3. It showcases my skills in DEF.</p>
+            </div>
+        </div>
+    </div>
+
+<!-- Education Section -->
+<section class="education-section" id="education">
+  <h2 class="grid-title">Education</h2>
+  <div class="education-block">
+    <div class="edu-item">
+      <h3>O/L & A/L [K/ Madina National School]</h3>
+          <button class="view-btn" onclick="openTranscript()">View Result Sheet (A/L)</button>
+    </div>
+  <div class="edu-item">
+    <div>
+      <h3>HND in Computing & Software Engineering</h3>
+      <p>ICBT Campus (09/2022 – 09/2024)</p>
+    </div>
+    <button class="view-btn" onclick="openTranscript()">View Transcript</button>
+  </div>
+    <div class="edu-item">
+      <h3>BEng (Hons) Software Engineering - Top-up</h3>
+      <p>ESOFT Campus (11/2025 – Present)</p>
+    </div>
+  </div>
+</section>
+
+<!-- Skills Section -->
+<section class="skills-section" id="skills">
+  <h2 class="grid-title">Skills</h2>
+  <div class="skills-badges">
+    <span>Java</span>
+    <span>FullSta</span>
+    <span>Full stack development</span>
+    <span>MySQL</span>
+    <span>C++</span>
+    <span>C#</span>
+    <span>R Language</span>
+    <span>JavaScript</span>
+  </div>
+</section>
+
+
+<!-- Transcript Popup -->
+<div id="transcriptModal" class="modal">
+  <span class="close" onclick="closeTranscript()">&times;</span>
+  <img class="modal-content" id="transcriptImage" src="Images/transcript.jpg" alt="Transcript">
+</div>
+
+
+
+ <!-- Cotnact Me Section-->
+ <section class="Contact" id="feedback">
+  <h2 class="Contact_title">Feedback</h2>
+  <div class="Contact-form">
+    <form action="https://api.web3forms.com/submit" method="POST">
+
+      <input type="hidden" name="access_key" value="a0c8eeda-dc77-4773-8fa7-0b197ff0931b">
+  
+      <input type="text" id="name" name="name" placeholder="Enter your name " required >
+      <input type="email" id="email" name="email" placeholder="Enter your email id " required>
+      <textarea name="message" id="message" placeholder="....." required></textarea>
+      <input type="hidden" name="redirect" value="https://web3forms.com/success">
+      <button type="submit" class="submit-btn">Submit Form</button>
+  
+  </form>
+  </div>
+</section>
+
+
+    <footer class="footer">      
+      <!-- Copyright Notice -->
+      <div class="footer-bottom">
+        <p>&copy; 2025 Moahmed Fayas.  All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

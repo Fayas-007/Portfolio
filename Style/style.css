@@ -1,0 +1,940 @@
+
+:root{
+    --accent : #03AFC2;
+    --dark-blue:#2c3e50;
+    --dark-blue-2:#2c3e50;
+    --dark-blue-nav:#2c3e50;
+    --gray:#A7A7A7;
+    --white:#FFFFFF;
+    --light-gray:#E8E9EB;
+    --dark-gray:#606060;
+    --red:tomato;
+    --feedback-background:  #1e2a38;
+}
+
+.darkmode{
+  background-color: black;
+  color: var(--white);
+  --dark-blue-nav:#272727;
+  --accent : #03AFC2;
+  --dark-blue:#03AFC2;
+  --dark-blue-2:#2c3e50;
+  --gray:#A7A7A7;
+  --white:#FFFFFF;
+  --light-gray:#E8E9EB;
+  --dark-gray:#606060;
+  --red:tomato;
+  --feedback-background: black;
+}
+
+#theme-switch {
+  height: 3rem;
+  width: 3rem;
+  padding: 0;
+  border-radius: 50%;
+  background-color: var(--dark-blue-2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed; /* better for zooming */
+  top: 7rem;  /* instead of 118px */
+  left: 1.25rem; /* 20px */
+  z-index: 1000;
+}
+
+
+#theme-switch .fa-regular{
+  color: var(--white);
+  font-size: 1.5em;
+}
+#theme-switch .fa-regular:last-child{
+  display: none;
+}
+
+.darkmode #theme-switch .fa-regular:first-child{
+  display: none;
+}
+.darkmode #theme-switch .fa-regular:last-child{
+  display: block;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+body{
+    color: var(--black);
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Merriweather";
+}
+
+
+
+#theme-switch .fa-regular:last-child{
+  display: none;
+}
+.greetings{
+    background-image: url(../Images/header-bg.png);
+    background-repeat: no-repeat;
+    background-position: center; 
+    background-attachment: fixed;
+    background-size: cover;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh; 
+}
+
+h2{
+
+    font-size: clamp(3rem, 4.2rem, 6rem); 
+    text-align: center;
+    font-family: "Merriweather";
+    font-weight: 400;
+    letter-spacing: 5px;
+    margin: 0;   
+}
+
+.greetings h1 {
+    flex-direction: column;
+    color: var(--accent);
+    line-height: 1;
+    font-size: clamp(4rem, 7rem, 8rem); 
+    text-align: center;
+    font-family: "Six Caps";
+    letter-spacing: 18px;
+    font-weight: 550;
+    margin: 0;
+}
+
+.greetings h1::after {
+    content: '';
+    width: 30%;
+    height: 1.5px;
+    background: var(--dark-blue);
+    display: block;
+    margin: 1em auto 0;
+}
+
+.greetings h2::before {
+  content: '';
+  width: 20%;
+  height: 1.5px;
+  background: var(--dark-blue);
+  display: block;
+  margin: 0 auto 1em;
+}
+  
+
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Nav Bar */
+
+.navbar {
+  max-width: 80vw; /* responsive max width */
+  width: 100%;     /* fill width */
+  margin: 1rem auto; /* margin in rem for zoom */
+  background-color: var(--dark-blue-nav);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem; /* relative padding */
+  border-radius: 0.625rem; /* 10px */
+  box-shadow: 0 0.25rem 0.5rem rgba(0,0,0,0.2);
+  font-family: "Merriweather";
+  font-size: clamp(1rem, 1vw + 0.5rem, 1.2rem);
+}
+
+.navbar .logo {
+  font-size: clamp(1.25rem, 1.5vw + 1rem, 1.8rem);
+  font-weight: bold;
+  color: var(--white);
+}
+
+
+.navbar .logo:hover{
+    animation-name: colorchange;
+    animation-duration: 3s;
+}
+
+@keyframes colorchange {
+    50%{color: var(--accent);}
+    100%{color: var(--white);}
+}
+.navbar ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar ul li {
+    margin: 0 20px;
+    position: relative;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: var(--white);
+    font-size: 16px;
+    transition: color 0.3s;
+    font-family: "Merriweather";
+}
+
+.navbar ul li a:hover {
+    color: var(--accent);
+}
+
+.navbar ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent);
+    transition: width 0.4s ease-out;
+}
+
+.navbar ul li a:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+/* Hamburger menu styles */
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--white);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Mobile Menu (Hidden by default) */
+.mobile-menu {
+    display: block !important;
+}
+
+/* Mobile view */
+@media screen and (max-width: 1000px) {
+    .navbar {
+        width: 75%; 
+    }
+    /* Hide the nav links on small screens */
+    .navbar ul {
+        display: none;
+        position: absolute;
+       
+        top: 80%;
+        left: 0;
+        right: 0;
+        background: var(--dark-blue-nav);
+        flex-direction: column;
+        border-radius: 10px;
+        text-align: center;
+        z-index: 1000;
+    }
+   
+    .navbar ul li a::after {
+        transition: none; 
+    }
+
+    .navbar ul li a::after
+    {
+        display: none;
+    }
+    /* Make the hamburger button visible */
+    .hamburger {
+        display: block;
+    }
+
+    /* Mobile menu links styling */
+    .navbar ul.active {
+        display: flex; /* Show menu when active */
+    }
+
+    .navbar ul li {
+        margin: 1rem 0;
+    }
+
+    .navbar ul li a {
+        font-size: 18px;
+        color: var(--white);
+        
+    }
+}
+
+.download-cv{
+    position: absolute;
+    top: 100px;
+    right: 10px;
+    padding: 20px; 
+}
+
+.download-btn {
+    background-color: var(--dark-blue-2); 
+    color: var(--white); 
+    padding: 12px 24px; 
+    border: none; 
+    border-radius: 5px; 
+    font-size: 1rem; 
+    font-family: "Merriweather";
+    letter-spacing: 2px;
+    font-weight: bold; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease, transform 0.2s ease; 
+}
+
+.download-btn:hover {
+    background-color: var(--light-gray); 
+    color: var(--accent);
+    transform: scale(1.05);
+}
+
+.download-btn:active {
+    background-color: var(--dark-blue-2); 
+    transform: scale(0.95); 
+    border: none;
+}
+
+.download-btn:focus {
+    outline: none; 
+    box-shadow: 0 0 0 3px var(--dark-blue-2); 
+}
+/* Intro */
+.intro {
+  margin: 0 auto;
+  max-width: 100%;
+  display: grid;
+  color: var(--white);
+  grid-template-columns: 1fr minmax(auto, 40em) 1fr;
+
+}
+ 
+.intro h2 {
+  font-family: "Six Caps";
+  letter-spacing: 6px;
+  font-weight: 500;
+  font-size: clamp(3.5rem, 4.5rem, 5rem);
+}
+
+.intro img {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+  height: 100%;
+  width: 50%; 
+}
+
+.intro p {
+  font-family: "Merriweather";
+  line-height: 1.8em;
+  font-style: oblique;
+}
+
+.intro h2::after {
+  content: '';
+  width: 30%;
+  height: 1.5px;
+  background: rgba(255, 255, 255, 0.5);
+  display: block;
+  margin: 0.5em auto 0;
+}
+.intro-middle {
+
+  background: var(--dark-blue-2);
+  padding: 2.5em 3em;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 1.3rem;
+  grid-column: 2; 
+}
+
+.intro-left img,
+.intro-right img {
+  object-fit: cover;
+  min-height: 100%;
+  min-width: 100%;
+  display: block;
+  
+}
+
+@media screen and (max-width: 1200px) {
+  .intro {
+    display: block; /* Stack the content on smaller screens */
+}
+.intro-left,
+.intro-right {
+    height: 25em;
+}
+.intro-left img,
+.intro-right img {
+    width: 100%; /* Ensure images fill the width without overflowing */
+}
+  
+}
+
+/* About me */
+.about-me {
+  width: 90%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 3em;
+  margin-bottom: 5em;
+  
+  display: grid;
+  grid-template-columns: 1fr; /* Single column by default */
+  grid-column-gap: 1em;
+  grid-row-gap: 1em;
+}
+
+.about-me::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.about-img {
+  margin-top: 1.5em;
+  max-width: 250px; 
+  height: auto;
+  border-radius: 50%;
+  margin-bottom: 1em;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.about-title {
+  margin-bottom: 0.25em;
+  color: var(--accent);
+  line-height: 1;
+  font-size: 3rem;
+  font-family: "Merriweather";
+  letter-spacing: 5px;
+  font-weight: 400;
+  text-align: center; 
+}
+
+.about-text {
+  font-family: "Liter";
+  font-size: clamp(1rem, 1.25rem, 1.5rem);
+  text-align: center; 
+  margin: -20px;
+  padding: 10px;
+}
+
+.about-subtitle {
+  font-family: "Merriweather";
+  font-size: 2rem;
+  text-align: center; 
+}
+.about-me .center-bold{
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.5em;
+}
+/* Icons */
+.icons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem; 
+    margin-top: 1.5rem; 
+    margin-bottom: 2rem; 
+}
+
+.icons a {
+    font-size: 2rem; 
+    color: var(--accent);
+    transition: color 0.4s ease, transform 0.4s ease;
+}
+
+.icons a:hover {
+    color: var(--accent);
+    transform: scale(1.2);
+}
+
+/* Specific colors for each icon on hover */
+.icons .fa-linkedin:hover ,.icons .fa-github:hover,.icons .fa-envelope-open-text:hover{
+    color: var(--accent); 
+}
+
+/* Below is the normal size website design for about me. */
+@media (min-width: 911px) {
+  .about-me {
+    grid-template-columns: 1fr 2fr; 
+    grid-column-gap: 2em; 
+  }
+
+  .about-img {
+    grid-row: 1 / 3;
+    margin-left: 0; 
+    margin-right: 2em;
+    max-width: 350px; 
+  }
+
+  .about-title {
+    text-align: left; 
+    font-size: clamp(4rem, 5rem, 6rem); 
+  }
+
+  .about-text,
+  .about-subtitle {
+    text-align: left; 
+  }
+
+  .about-title {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    align-self: end;
+  }
+
+  .about-subtitle {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    font-size: clamp(2rem, 3rem, 5rem); 
+  }
+
+  .about-text {
+    grid-column: 2 / 3;
+    grid-row: 3 / 4;
+  }
+}
+
+@media (min-width: 1024px) {
+  .about-img {
+    max-width: 400px; 
+  }
+}
+
+#Highlight {
+  display: inline-block; 
+  transform: scale(1.2); 
+  transition: transform 0.3s ease-in-out; 
+  margin-left: 5px;
+  margin-right: 5px;
+  font-weight: bold;
+}
+
+/* Optional: Add a hover effect to make it slightly larger on hover */
+#Highlight:hover {
+  transform: scale(1.4);
+}
+/* Projects */
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns by default */
+  gap: 40px;
+  padding: 10px;
+  margin: 0 20px;
+}
+
+.grid-title {
+  grid-column: 1 / -1; /* Span across all columns */
+  text-align: center; 
+  margin-bottom: 1em;
+  color: var(--dark-blue);
+  line-height: 1;
+  font-size: 3rem;
+  font-family: "Merriweather";
+  letter-spacing: 5px;
+  font-weight: 400;
+  min-width: 300px;
+}
+
+.project-item {
+position: relative;
+border-radius: 10px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+transition: transform 0.3s ease;
+}
+
+.project-item:hover {
+transform: scale(1.05);
+}
+
+.project-gif {
+width: 100%;
+height: 100%;
+object-fit: cover;
+display: block;
+transition: transform 0.3s ease;
+}
+
+.project-item:hover .project-gif {
+transform: scale(1);
+}
+
+.project-info {
+position: absolute;
+bottom: 0;
+left: 0;
+right: 0;
+color: var(--white);
+padding: 10px;
+text-align: center;
+opacity: 0;
+background-color: hsla(0, 0%, 15%, 0.7);
+transition: opacity 0.3s ease;
+}
+
+.project-item:hover .project-info {
+opacity: 1;
+}
+
+.project-info h3 {
+margin: 0;
+font-size: 1.1em;
+}
+
+.project-info p {
+font-family: "Liter";
+font-size: clamp(0.5rem, 0.7rem, 2rem);
+letter-spacing: 1.5px;
+text-align: center; /* Center text for mobile */
+margin: 5px 0 0;
+}
+
+@media (max-width:1000px){
+  .portfolio-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns for tablets or medium screens */
+  }
+
+  .project-item:hover .project-gif,
+  .project-item:hover {
+    transform: scale(1); /* disables hover scale on smaller screens */
+  }
+}
+
+/* Small screens: 1 column */
+@media (max-width: 600px) {
+  .portfolio-grid {
+    grid-template-columns: 1fr; /* 1 column for mobile */
+  }
+}
+
+
+/* Feedback */
+.Contact{
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1); 
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: rgb(250, 250, 250);
+  border-radius: 10px ;
+}
+
+.Contact_title {
+  text-align: center; 
+  margin-bottom: 1em;
+  margin-top: 2em;
+  padding: 10px;
+  color: var(--dark-blue);
+
+  line-height: 1;
+  font-size: 3rem;
+  font-family: "Merriweather";
+  letter-spacing: 5px;
+  font-weight: 400;
+}
+
+.Contact-form {
+  margin-bottom: 70px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+  margin: 0 auto;
+  background-color:rgb(250, 250, 250); 
+  border-radius: 10px; 
+  position: relative; 
+}
+
+
+
+.Contact-form label {
+  margin-bottom: 10px; 
+  font-weight: bold;
+  color: var(--dark-blue);
+}
+
+.Contact-form input,
+.Contact-form textarea {
+  width: 95%; 
+  padding: 15px;
+  margin-bottom: 20px; 
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1); 
+
+}
+
+.Contact-form textarea {
+  resize: vertical; 
+  min-height: 150px; 
+  font-family: "Liter";
+}
+.Contact-form form {
+  text-align: center;
+}
+.submit-btn  {
+
+  background-color: var(--dark-blue-2); 
+  color: var(--white); 
+  padding: 12px 24px; 
+  border: none; 
+  border-radius: 5px; 
+  font-size: 1rem; 
+  font-family: "Arial";
+  letter-spacing: 2px;
+  font-weight: bold; 
+  cursor: pointer;
+   text-align: center;
+  transition: background-color 0.3s ease, transform 0.2s ease; 
+}
+
+.submit-btn:hover {
+  background-color: var(--light-gray); 
+  color: var(--accent);
+  transform: scale(1.05); 
+}
+
+.submit-btn:active {
+  background-color: var(--dark-blue-2); 
+  transform: scale(0.95); 
+  border: none;
+}
+
+.submit-btn:focus {
+  outline: none; 
+  box-shadow: 0 0 0 3px var(--dark-blue); 
+}
+
+@media (max-width: 1000px){
+  .Contact-form input,
+   textarea{
+    width: 93%;
+    }
+
+  .Contact{
+    width: 90%;
+  }
+}
+.darkmode .Contact {
+  background-color: #1e2a38; /* dark navy, matching education block */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7), 0 6px 20px rgba(0, 0, 0, 0.7);
+  color: var(--light-gray);
+}
+.darkmode .Contact-form{
+  background-color: #1e2a38; 
+}
+
+.darkmode .Contact_title {
+  color: var(--accent);
+}
+
+.darkmode .Contact-form label {
+  color: var(--light-gray);
+}
+
+.darkmode .Contact-form input,
+.darkmode .Contact-form textarea {
+  background-color: #273746; /* dark input background */
+  color: var(--light-gray);
+  box-shadow: none; /* remove light shadows for inputs */
+}
+
+.darkmode .Contact-form input::placeholder,
+.darkmode .Contact-form textarea::placeholder {
+  color: var(--gray);
+}
+
+.darkmode .submit-btn {
+  background-color: var(--dark-blue-2);
+  color: var(--white);
+  border: none;
+}
+
+.darkmode .submit-btn:hover {
+  background-color: #026b83; /* darker accent on hover */
+  color: var(--white);
+}
+
+.darkmode .submit-btn:focus {
+  box-shadow: 0 0 0 3px var(--accent);
+}
+/* Footer Styles */
+.footer {
+  background-color: #2c3e50; 
+  color: #ecf0f1; 
+  padding: 20px 0; 
+  font-family: "Arial", sans-serif;
+  margin-top: 2em;
+  text-align: center; 
+}
+
+.footer-bottom {
+  font-size: 0.9rem; 
+  color: #bdc3c7; 
+}
+
+.footer-bottom p {
+  margin: 0; /* Remove default margin */
+}
+
+#scrollToTopBtn {
+  display: none;
+  position: fixed;
+  bottom: 70px;
+  right: 20px;
+  z-index: 99;
+  border: none;
+  outline: none;
+  background-color: var(--accent);
+  color: var(--white);
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 50%;
+  font-size: 18px;
+  width: 50px;
+  height: 50px;
+  transition: background-color 0.3s;
+}
+
+#scrollToTopBtn:hover {
+  background-color: var(--dark-blue);
+}
+
+/* Education Section */
+.education-section {
+  padding: 80px 20px;
+  background-color: var(--light-bg);
+}
+.education-block {
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
+  max-width: 900px;
+  margin: auto;
+}
+.edu-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  padding: 50px 0;
+}
+.darkmode .education-block {
+  background: #1e2a38; /* dark navy background for education block */
+  box-shadow: 0 4px 15px rgba(0,0,0,0.7); /* stronger shadow for dark mode */
+  color: var(--light-gray); /* lighter text color for readability */
+}
+
+.darkmode .education-block h3,
+.darkmode .education-block p {
+  color: var(--light-gray);
+}
+
+/* Also fix buttons in education section */
+.darkmode .view-btn {
+  background: var(--dark-blue-2);
+  color: white;
+}
+
+.darkmode .view-btn:hover {
+  background: #026b83; /* a slightly darker accent for hover */
+  color: var(--white);
+}
+
+.edu-item h3 {
+  margin: 0;
+}
+
+.edu-item p {
+  margin: 5px 0 0;
+}
+
+.view-btn {
+  background: var(--dark-blue-2);
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  flex-shrink: 0; /* prevents shrinking */
+}
+
+.view-btn:hover {
+  background: var(--dark-blue-1);
+}
+
+/* Skills Section */
+.skills-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  max-width: 900px;
+  margin: auto;
+}
+
+.skills-badges span {
+  background: var(--dark-blue-2);
+  color: white;
+  padding: 10px 16px;
+  border-radius: 50px;
+  font-weight: bold;
+  font-size: 1rem;
+  white-space: nowrap;
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  cursor: default;
+  box-shadow: none;
+}
+
+.skills-badges span:hover {
+  background: var(--accent); /* slightly lighter */
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); /* very minimal shadow */
+  transform: scale(1.03);
+  cursor: pointer;
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  padding-top: 60px;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.7);
+}
+.modal-content {
+  display: block;
+  margin: auto;
+  max-width: 80%;
+  border-radius: 8px;
+}
+.close {
+  position: absolute;
+  top: 20px; right: 35px;
+  color: #fff;
+  font-size: 40px;
+  cursor: pointer;
+}
