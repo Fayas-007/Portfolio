@@ -611,11 +611,9 @@ body {
 .project-gif {
   width: 100%;
   max-width: 520px;     /* keep image smaller than project-item */
-  height: auto;
-  max-height: 300px;
-  object-fit: cover;
+  height: 300px;        /* fixed height */
   border-radius: 8px;
-  margin: 0 auto 20px;  /* center horizontally + spacing below */
+  margin: 0 auto 5px;  /* center horizontally + spacing below */
   display: block;
   transition: transform 0.3s ease;
   object-fit: contain;
@@ -652,6 +650,7 @@ body {
   .project-gif {
     height: 220px;
     max-width: 100%;
+    margin-bottom: 5px;
   }
   .project-info h3 {
     font-size: 1.1rem;
