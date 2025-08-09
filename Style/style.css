@@ -611,12 +611,14 @@ body {
 .project-gif {
   width: 100%;
   max-width: 520px;     /* keep image smaller than project-item */
-  height: 300px;        /* fixed height */
+  height: auto;
+  max-height: 300px;
   object-fit: cover;
   border-radius: 8px;
   margin: 0 auto 20px;  /* center horizontally + spacing below */
   display: block;
   transition: transform 0.3s ease;
+  object-fit: contain;
 }
 
 .project-item:hover .project-gif {
