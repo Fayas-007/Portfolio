@@ -89,17 +89,53 @@ themeSwitch.addEventListener("click" , () =>{
   darkmode !== "active" ? enableDarkmode() : disableDarkmode()
 })
 
-function openTranscript() {
-  document.getElementById("transcriptModal").style.display = "block";
+
+const modal = document.getElementById('transcriptModal');
+
+modal.addEventListener('click', function(event) {
+  // If the clicked target is the modal itself (background), close it
+  if (event.target === modal) {
+    closeTranscript();
+  }
+});
+
+const transcriptImages = {
+  AL: ['Images/AL_Transcript.jpg'],  // A/L - single image
+  HND: [
+    'Images/t1.png',
+    'Images/t2.png',
+    'Images/t3.png',
+  ],
+  BEng: ['Images/BEng_Transcript.jpg']  // BEng - single image or multiple if you want
+};
+let currentImageIndex = 0;
+let currentImages = [];
+
+function openTranscript(key) {
+  currentImages = transcriptImages[key];
+  currentImageIndex = 0;
+
+  const modal = document.getElementById('transcriptModal');
+  const img = document.getElementById('transcriptImage');
+  
+  img.src = currentImages[currentImageIndex];
+  modal.style.display = 'block';
+
+  // Show or hide nav buttons depending on number of images
+  document.getElementById('prevBtn').style.display = currentImages.length > 1 ? 'inline-block' : 'none';
+  document.getElementById('nextBtn').style.display = currentImages.length > 1 ? 'inline-block' : 'none';
 }
 
 function closeTranscript() {
-  document.getElementById("transcriptModal").style.display = "none";
+  document.getElementById('transcriptModal').style.display = 'none';
 }
 
-window.onclick = function(event) {
-  const modal = document.getElementById("transcriptModal");
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
+function nextImage() {
+  currentImageIndex = (currentImageIndex + 1) % currentImages.length;
+  document.getElementById('transcriptImage').src = currentImages[currentImageIndex];
+}
+
+function prevImage() {
+  currentImageIndex = (currentImageIndex - 1 + currentImages.length) % currentImages.length;
+  document.getElementById('transcriptImage').src = currentImages[currentImageIndex];
 }

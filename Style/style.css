@@ -146,7 +146,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem; /* relative padding */
+  padding: 0.7rem 2rem; /* relative padding */
   border-radius: 0.625rem; /* 10px */
   box-shadow: 0 0.25rem 0.5rem rgba(0,0,0,0.2);
   font-family: "Merriweather";
@@ -154,7 +154,7 @@ body {
 }
 
 .navbar .logo {
-  font-size: clamp(1.25rem, 1.5vw + 1rem, 1.8rem);
+  font-size: clamp(1.2rem, 1.4vw + 1rem, 1.7rem);
   font-weight: bold;
   color: var(--white);
 }
@@ -283,7 +283,7 @@ body {
 .download-btn {
     background-color: var(--dark-blue-2); 
     color: var(--white); 
-    padding: 12px 24px; 
+    padding: 10px 10px; 
     border: none; 
     border-radius: 5px; 
     font-size: 1rem; 
@@ -457,14 +457,14 @@ body {
 }
 
 .icons a {
-    font-size: 2rem; 
+    font-size: 2rem;
     color: var(--accent);
-    transition: color 0.4s ease, transform 0.4s ease;
+    transition: color 0.4s ease, font-size 0.4s ease;
 }
 
 .icons a:hover {
     color: var(--accent);
-    transform: scale(1.2);
+    font-size: 2.4rem; /* Increase font size on hover */
 }
 
 /* Specific colors for each icon on hover */
@@ -533,119 +533,132 @@ body {
 #Highlight:hover {
   transform: scale(1.4);
 }
-/* Projects */
-
-.portfolio-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 columns by default */
-  gap: 40px;
-  padding: 10px;
-  margin: 0 20px;
+.darkmode .project-info h3 {
+  color: var(--light-gray);  /* or any light color for dark bg */
 }
 
+.darkmode .project-info p {
+  color: #ccc; /* lighter gray for readability */
+}
+.darkmode .grid-title{
+  color: white;
+}
+.darkmode .project-item {
+  background: #1e2a38; /* optional: dark background for project cards */
+  box-shadow: 0 4px 15px rgba(0,0,0,0.7);
+}
 .grid-title {
-  grid-column: 1 / -1; /* Span across all columns */
-  text-align: center; 
+ text-align: center; 
   margin-bottom: 1em;
+  margin-top: 1em;
+  padding: 10px;
   color: var(--dark-blue);
+
   line-height: 1;
   font-size: 3rem;
   font-family: "Merriweather";
   letter-spacing: 5px;
   font-weight: 400;
-  min-width: 300px;
+}
+/* Projects Grid Container */
+.portfolio-grid {
+  display: grid;
+  gap: 40px;
+  padding: 10px 20px;
+  grid-template-columns: 1fr;    /* Mobile: 1 column */
+  max-width: 90vw;
+  margin: 0 auto;                /* Center the grid */
 }
 
+/* 2 columns between 850px and 1299px */
+@media (min-width: 850px) and (max-width: 1350px) {
+  .portfolio-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* 3 columns at 1300px and above */
+@media (min-width: 1349px) {
+  .portfolio-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Individual Project Item Styling */
 .project-item {
-  position: relative;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
 
-  /* Set fixed height for all project items */
-  height: 350px; /* adjust as needed */
-  overflow: hidden;
+  max-width: 600px;      /* limits max width */
+  margin: 0 auto;        /* centers item within grid column */
+  height: 480px;         /* fixed height for uniformity */
+  box-sizing: border-box;
 }
+
 .project-item:hover {
-transform: scale(1.05);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
+/* Project Image / Gif */
 .project-gif {
   width: 100%;
-  height: 100%;
+  max-width: 520px;     /* keep image smaller than project-item */
+  height: 300px;        /* fixed height */
   object-fit: cover;
+  border-radius: 8px;
+  margin: 0 auto 20px;  /* center horizontally + spacing below */
   display: block;
   transition: transform 0.3s ease;
 }
 
 .project-item:hover .project-gif {
-transform: scale(1);
+  transform: scale(1.05);
 }
 
-.project-info {
-position: absolute;
-bottom: 0;
-left: 0;
-right: 0;
-color: var(--white);
-padding: 10px;
-text-align: center;
-opacity: 0;
-background-color: hsla(0, 0%, 15%, 0.7);
-transition: opacity 0.3s ease;
-}
-
-.project-item:hover .project-info {
-opacity: 1;
-}
-
+/* Project Info */
 .project-info h3 {
-margin: 0;
-font-size: 1.1em;
+  margin: 0 0 10px;
+  color: var(--dark-blue);
+  font-weight: 700;
+  font-size: 1.25rem;
+  text-align: center;
 }
 
 .project-info p {
-font-family: "Liter";
-font-size: clamp(0.5rem, 0.7rem, 2rem);
-letter-spacing: 1.5px;
-text-align: center; /* Center text for mobile */
-margin: 5px 0 0;
+  margin: 0;
+  color: #555;
+  font-size: 1rem;
+  line-height: 1.4;
+  text-align: center;
 }
 
-.project-info p strong {
-  color: #f39c12; /* orange/gold */
-  font-weight: 700;
-  font-style: italic;
-}
-
-@media (max-width:1000px){
-  .portfolio-grid {
-    grid-template-columns: repeat(2, 1fr); /* 2 columns for tablets or medium screens */
-  }
-
-  .project-item:hover .project-gif,
-  .project-item:hover {
-    transform: scale(1); /* disables hover scale on smaller screens */
-  }
-}
-
-/* Small screens: 1 column */
-@media (max-width: 600px) {
-  .portfolio-grid {
-    grid-template-columns: 1fr; /* 1 column for mobile */
-  }
-}
-@media (max-width: 1000px) {
+/* Responsive tweaks for very small screens */
+@media (max-width: 400px) {
   .project-item {
-    height: 200px;
+    max-width: 100%;      /* fill grid width */
+    height: auto;         /* let height grow */
+    padding: 15px;
+  }
+  .project-gif {
+    height: 220px;
+    max-width: 100%;
+  }
+  .project-info h3 {
+    font-size: 1.1rem;
+  }
+  .project-info p {
+    font-size: 0.9rem;
   }
 }
 
-@media (max-width: 600px) {
-  .project-item {
-    height: 180px;
-  }
-}
 
 
 /* Feedback */
@@ -712,6 +725,7 @@ margin: 5px 0 0;
 .Contact-form form {
   text-align: center;
 }
+
 .submit-btn  {
 
   background-color: var(--dark-blue-2); 
@@ -765,7 +779,7 @@ margin: 5px 0 0;
 }
 
 .darkmode .Contact_title {
-  color: var(--accent);
+  color:white;
 }
 
 .darkmode .Contact-form label {
@@ -800,7 +814,7 @@ margin: 5px 0 0;
 }
 /* Footer Styles */
 .footer {
-  background-color: #2c3e50; 
+  background-color: black; 
   color: #ecf0f1; 
   padding: 20px 0; 
   font-family: "Arial", sans-serif;
@@ -889,20 +903,74 @@ margin: 5px 0 0;
 .edu-item p {
   margin: 5px 0 0;
 }
+.status{
+  color: orange;
+}
 
 .view-btn {
   background: var(--dark-blue-2);
+  font-size: 1rem;
   color: white;
   border: none;
-  padding: 8px 14px;
+  padding: 10px 15px;     /* default large padding */
   border-radius: 8px;
   cursor: pointer;
   transition: background 0.3s ease;
-  flex-shrink: 0; /* prevents shrinking */
+  flex-shrink: 0;
+  display: inline-block;
+  box-sizing: border-box; /* just in case */
 }
 
-.view-btn:hover {
-  background: var(--dark-blue-1);
+
+.view-btn:hover,
+.view-btn:focus {
+  background-color: #026b83; /* Slightly darker accent */
+  transform: translateY(-3px);
+  outline: none;
+}
+/* Responsive: stack edu items vertically on smaller screens */
+@media (max-width: 720px) {
+  .edu-item {
+    flex-direction: column;       /* stack vertically */
+    align-items: flex-start;      /* left align text */
+    padding: 30px 0;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .edu-item h3,
+  .edu-item p {
+    margin-left: 0;
+    text-align: left;
+  }
+
+  .view-btn {
+    margin-top: 20px;
+    width: auto;           /* natural button width */
+    align-self: center;           /* center horizontally */
+    display: block;
+     padding: 8px 20px !important;  
+  }
+}
+
+/* Very small devices */
+@media (max-width: 400px) {
+  .education-section {
+    padding: 40px 10px;
+  }
+
+  .education-block {
+    padding: 20px;
+  }
+
+  .edu-item {
+    padding: 20px 0;
+  }
+
+  .view-btn {
+    font-size: 1rem;
+     padding: 6px 16px !important;
+    font-size: 0.95rem !important;
+  }
 }
 
 /* Skills Section */

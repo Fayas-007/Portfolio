@@ -69,9 +69,20 @@
         <h2 class="about-subtitle">Software Designer & Developer</h2>
 
         <div class="icons">
-          <a href="https://www.linkedin.com/in/mohamed-fayas-23bba7334/" target="_blank" alt ="linkedin"><i class="fa-brands fa-linkedin"></i></a>
-          <a href="https://github.com/Fayas-007" target="_blank" alt ="Git-Hub"><i class="fa-brands fa-github"></i></i></a> 
+          <a href="https://www.linkedin.com/in/mohamed-fayas-23bba7334/" target="_blank" alt="linkedin">
+            <i class="fa-brands fa-linkedin"></i>
+          </a>
+          <a href="https://github.com/Fayas-007" target="_blank" alt="GitHub">
+            <i class="fa-brands fa-github"></i>
+          </a> 
+          <a href="mailto:fayasshibly007@gmail.com" target="_blank" alt="Email">
+            <i class="fa-solid fa-envelope-open-text"></i>
+          </a> 
+          <a href="tel:+94761324209" target="_blank" alt="Phone_number">
+            <i class="fa-solid fa-phone-volume"></i>
+          </a> 
         </div>
+
 
         <div class="about-text">
           <p>
@@ -138,7 +149,7 @@
 
     <!-- Project 5 -->
     <div class="project-item">
-      <img src="Images/restaurant-reservation.png" alt="Restaurant Room Reservation System" class="project-gif">
+      <img src="Vedios/regio-crust.gif" alt="Restaurant Room Reservation System" class="project-gif">
       <div class="project-info">
         <h3>Restaurant Room Reservation System</h3>
         <p>A reservation system for Region Crust to manage restaurant rooms effectively.</p>
@@ -156,10 +167,10 @@
 
     <!-- Project 7 -->
     <div class="project-item">
-      <img src="Images/jobfinder-react.png" alt="Job Finder Application" class="project-gif">
+      <img src="Images/Brightpath.png" alt="Job Finder Application" class="project-gif">
       <div class="project-info">
-        <h3>Job Finder Application</h3>
-        <p>A job search platform built with React. Currently under active development. <strong>Status:</strong> In Progress</p>
+        <h3>BrightPath web application</h3>
+        <p>A job search platform built with React. Currently under active development.<strong> Status:</strong> <strong class="status">In Progress</strong> </p>
       </div>
     </div>
     </div>
@@ -168,21 +179,31 @@
 <section class="education-section" id="education">
   <h2 class="grid-title">Education</h2>
   <div class="education-block">
+
     <div class="edu-item">
-      <h3>O/L & A/L [K/ Madina National School]</h3>
-          <button class="view-btn" onclick="openTranscript()">View Result Sheet (A/L)</button>
+      <div class="edu-text">
+        <h3>O/L & A/L</h3>
+        <p>K/ Madina National School</p>
+      </div>
+      <button class="view-btn" onclick="openTranscript('AL')">View Result (A/L)</button>
     </div>
-  <div class="edu-item">
-    <div>
-      <h3>HND in Computing & Software Engineering</h3>
-      <p>ICBT Campus (09/2022 – 09/2024)</p>
-    </div>
-    <button class="view-btn" onclick="openTranscript()">View Transcript</button>
-  </div>
+
     <div class="edu-item">
-      <h3>BEng (Hons) Software Engineering - Top-up</h3>
-      <p>ESOFT Campus (11/2025 – Present)</p>
+      <div class="edu-text">
+        <h3>HND in Computing & Software Engineering</h3>
+        <p>ICBT Campus (09/2022 – 09/2024)</p>
+      </div>
+      <button class="view-btn" onclick="openTranscript('HND')">View Transcript</button>
     </div>
+
+    <div class="edu-item">
+      <div class="edu-text">
+        <h3>BEng (Hons) Software Engineering - Top-up</h3>
+        <p>ESOFT Campus (11/2025 – Present)</p>
+      </div>
+      <p class="status" >In Progress</p>
+    </div>
+
   </div>
 </section>
 
@@ -190,11 +211,10 @@
 <section class="skills-section" id="skills">
   <h2 class="grid-title">Skills</h2>
   <div class="skills-badges">
-    <span>Java</span>
-    <span>FullSta</span>
     <span>Full stack development</span>
+    <span>Java</span>
     <span>MySQL</span>
-    <span>C++</span>
+    <span>C++</span><br>
     <span>C#</span>
     <span>R Language</span>
     <span>JavaScript</span>
@@ -203,9 +223,15 @@
 
 
 <!-- Transcript Popup -->
-<div id="transcriptModal" class="modal">
+<div id="transcriptModal" class="modal" style="display:none;">
   <span class="close" onclick="closeTranscript()">&times;</span>
-  <img class="modal-content" id="transcriptImage" src="Images/transcript.jpg" alt="Transcript">
+  
+  <img id="transcriptImage" src="" alt="Transcript" style="max-width: 90vw; max-height: 80vh; display: block; margin: 0 auto; border-radius: 12px;">
+  
+  <div style="text-align: center; margin-top: 10px;">
+    <button id="prevBtn" onclick="prevImage()" aria-label="Previous image">‹ Prev</button>
+    <button id="nextBtn" onclick="nextImage()" aria-label="Next image">Next ›</button>
+  </div>
 </div>
 
 
