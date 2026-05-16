@@ -1,0 +1,61 @@
+/* ═══ STUDIES ═══ */
+.stats{background:var(--black);}
+
+/* ── Education cards ── */
+.edu{
+  display:grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--s-md);
+}
+
+.edu__card{
+  padding: 18px 18px !important;
+}
+
+.edu__top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.edu__status{
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+}
+
+.edu__title{
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text);
+  margin-bottom: 4px;
+  line-height: 1.05;
+}
+
+.edu__org{
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+  display:block;
+  margin-bottom: 10px;
+}
+
+.edu__detail{
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+@media(max-width:768px){
+  .edu{
+    grid-template-columns: 1fr;
+    gap: var(--s-sm);
+  }
+}

@@ -1,0 +1,216 @@
+/* ═══ NAVBAR ═══ */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  transition: all 0.35s ease;
+  isolation: isolate;
+  /* ✅ contain nav's own stacking context */
+}
+
+.nav--scrolled {
+  background: rgba(255, 255, 255, 0.97);
+  box-shadow: 0 1px 0 var(--gray-200);
+}
+
+.nav__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--nav-h);
+  padding: 0 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Logo */
+.nav__logo {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--black);
+  text-decoration: none;
+  letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav__logo:hover {
+  opacity: 1;
+}
+
+.nav__logo-dot {
+  color: var(--black);
+  font-weight: 900;
+}
+
+/* Links */
+.nav__links {
+  display: flex;
+  gap: 0;
+  list-style: none;
+}
+
+.nav__link {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: var(--gray-600);
+  padding: 8px 20px;
+  text-decoration: none;
+  transition: color 0.25s ease;
+  position: relative;
+}
+
+.nav__logo-img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.nav__logo:hover .nav__logo-img {
+  transform: scale(1.08);
+  transition: transform 0.25s ease;
+}
+
+.nav__link::after {
+  content: '';
+  position: absolute;
+  bottom: 4px;
+  left: 20px;
+  right: 20px;
+  height: 1px;
+  background: var(--black);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav__link:hover {
+  color: var(--black);
+  opacity: 1;
+}
+
+.nav__link:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* CTA */
+.nav__cta {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--white);
+  background: var(--black);
+  padding: 10px 24px;
+  border-radius: 100px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+}
+
+.nav__cta:hover {
+  background: var(--gray-800);
+  opacity: 1;
+  transform: translateY(-1px);
+}
+
+/* Burger */
+.nav__burger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.nav__burger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--black);
+  transition: all 0.25s ease;
+  border-radius: 2px;
+}
+
+.nav__burger--open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.nav__burger--open span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav__burger--open span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .nav__inner {
+    padding: 0 1.25rem;
+  }
+
+  .nav__cta {
+    display: none;
+  }
+
+  .nav__burger {
+    display: flex;
+  }
+
+  .nav__links {
+    position: fixed;
+    /* ✅ keep fixed */
+    top: var(--nav-h);
+    left: 0;
+    width: 100vw;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--gray-200);
+    padding: 1.5rem 0;
+
+    /* ✅ Fix: use visibility + opacity + pointer-events instead of translateY */
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-8px);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+      opacity 0.3s ease,
+      visibility 0.35s;
+    z-index: 999;
+  }
+
+  .nav__links--open {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+    /* ✅ slides in cleanly */
+  }
+
+  .nav__link {
+    padding: 14px 2rem;
+    font-size: 1rem;
+    display: block;
+  }
+
+  .nav__link::after {
+    left: 2rem;
+    right: auto;
+    width: 30px;
+  }
+}

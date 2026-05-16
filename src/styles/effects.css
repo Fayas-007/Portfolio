@@ -1,0 +1,123 @@
+/* ═══════════════════════════════════════════════════════════════
+   EFFECTS — Scanlines, Grid, Glitch, Signal Pulse
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Scanline Overlay (very subtle CRT) ── */
+.scanlines{
+  pointer-events:none;position:fixed;
+  top:0;left:0;width:100%;height:100%;z-index:9999;
+  background:repeating-linear-gradient(
+    0deg,transparent,transparent 2px,
+    rgba(0,0,0,0.015) 2px,rgba(0,0,0,0.015) 4px
+  );
+}
+
+/* ── Dot Grid Overlay ── */
+.dot-grid{position:relative;}
+.dot-grid::before{
+  content:'';position:absolute;top:0;left:0;width:100%;height:100%;
+  pointer-events:none;z-index:0;opacity:0.025;
+  background-image:radial-gradient(circle,var(--accent) 0.5px,transparent 0.5px);
+  background-size:16px 16px;
+}
+
+/* ── Glitch — RGB Split ── */
+@keyframes glitch{
+  0%,100%{transform:translate(0);filter:none;}
+  2%{transform:translate(-3px,1px);filter:hue-rotate(90deg);}
+  4%{transform:translate(3px,-1px);}
+  6%{transform:translate(-1px,-2px);filter:hue-rotate(-90deg);}
+  8%{transform:translate(0);filter:none;}
+}
+
+@keyframes glitchClip{
+  0%,100%{clip-path:inset(0 0 100% 0);}
+  5%{clip-path:inset(30% 0 50% 0);}
+  10%{clip-path:inset(70% 0 10% 0);}
+  15%{clip-path:inset(10% 0 70% 0);}
+  20%{clip-path:inset(0 0 100% 0);}
+}
+
+.glitch-text{position:relative;display:inline-block;}
+
+.glitch-text::before,
+.glitch-text::after{
+  content:attr(data-text);
+  position:absolute;top:0;left:0;
+  width:100%;height:100%;
+  pointer-events:none;opacity:0;
+  transition:opacity 0.15s;
+}
+
+.glitch-text:hover::before{
+  color:var(--red);
+  transform:translate(-2px,-1px);
+  animation:glitchClip 0.4s linear;
+  opacity:0.7;
+}
+
+.glitch-text:hover::after{
+  color:var(--blue);
+  transform:translate(2px,1px);
+  animation:glitchClip 0.4s linear 0.05s;
+  opacity:0.7;
+}
+
+/* ── Signal Pulse Line ── */
+@keyframes signalPulse{
+  0%{transform:scaleX(0);opacity:1;}
+  50%{transform:scaleX(1);opacity:1;}
+  100%{transform:scaleX(0);opacity:0;}
+}
+
+.signal-line{
+  height:1px;background:var(--accent);
+  transform-origin:left;
+  animation:signalPulse 3s ease-in-out infinite;
+  box-shadow:var(--glow-accent);
+}
+
+/* ── Flicker ── */
+@keyframes flicker{
+  0%{opacity:1;}3%{opacity:0.4;}6%{opacity:1;}
+  7%{opacity:0.7;}9%{opacity:1;}100%{opacity:1;}
+}
+
+/* ── Boot Animation ── */
+@keyframes bootIn{
+  0%{opacity:0;transform:translateY(6px);}
+  100%{opacity:1;transform:translateY(0);}
+}
+
+.boot-line{opacity:0;animation:bootIn 0.3s ease forwards;}
+.boot-line:nth-child(1){animation-delay:0.3s;}
+.boot-line:nth-child(2){animation-delay:0.6s;}
+.boot-line:nth-child(3){animation-delay:0.9s;}
+.boot-line:nth-child(4){animation-delay:1.2s;}
+.boot-line:nth-child(5){animation-delay:1.5s;}
+
+/* ── Scan Sweep ── */
+@keyframes scanSweep{
+  0%{top:-2px;opacity:0;}
+  50%{opacity:0.6;}
+  100%{top:calc(100% + 2px);opacity:0;}
+}
+
+/* ── Cursor Blink ── */
+@keyframes cursorBlink{
+  0%,50%{opacity:1;}51%,100%{opacity:0;}
+}
+
+.blink-cursor::after{
+  content:'_';
+  animation:cursorBlink 1s step-end infinite;
+  color:var(--accent);
+}
+
+/* ── Barcode Strip ── */
+.barcode{
+  display:flex;gap:1px;height:20px;align-items:end;opacity:0.15;
+}
+.barcode span{
+  display:block;width:2px;background:var(--text);
+}

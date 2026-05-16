@@ -1,0 +1,95 @@
+const projects = [
+  {
+    id: 1,
+    title: "Gym Website",
+    description:
+      "Fully responsive and interactive gym website built as a prototype demonstrating web development skills — featuring class schedules, membership plans, and a dynamic UI.",
+    techStack: ["HTML", "CSS", "JavaScript", "Responsive Design"],
+    status: "Completed",
+    type: "Group",
+    image: "/videos/projects/Gym-gif.gif",
+    video: null,
+    githubLink: "https://github.com/Fayas-007/champions-gym",
+    liveLink: "#",
+  },
+  {
+    id: 2,
+    title: "StarEvents — Event Management System",
+    description:
+      "Academic software engineering project for managing events, bookings, and registrations. Features full CRUD operations for events, a structured booking system, and a clean user-friendly interface built with C# and .NET.",
+    techStack: ["C#", ".NET", "Windows Forms", "Visual Studio", "Git"],
+    status: "Completed",
+    type: "Group",
+    image: "/images/projects/StarEvents.png",
+    video: null,
+    githubLink: "https://github.com/Fayas-007/StarEvents-Event-Management-System",
+    liveLink: null,
+  },
+  {
+    id: 3,
+    title: "Restaurant Website",
+    description:
+      "Sample restaurant website showcasing a clean design approach and modern web development skills, complete with menu presentation and contact sections.",
+    techStack: ["HTML", "CSS", "JavaScript"],
+    status: "Completed",
+    type: "Group",
+    image: "/videos/projects/regio-crust.gif",
+    video: null,
+    githubLink: "https://github.com/Fayas-007/Region-Crust",
+    liveLink: "#",
+  },
+  {
+    id: 4,
+    title: "R Project",
+    description:
+      "Analyzed 1971 Canadian census data using R and Excel to explore factors influencing occupational prestige through regression, correlation, and statistical visualisation techniques.",
+    techStack: ["R", "Excel", "Statistical Analysis", "Data Visualisation"],
+    status: "Completed",
+    type: "Solo",
+    image: "/images/projects/R_Picv.png",
+    video: null,
+    githubLink: "https://github.com/Fayas-007/Business-Aalytics-R-",
+    liveLink: null,
+  },
+  {
+    id: 5,
+    title: "E-Shift Household Goods Shifting System",
+    description:
+      "Full-stack system for managing transport jobs, customers, and logistics with role-based access control, real-time job tracking, and an admin dashboard.",
+    techStack: ["Java", "MySQL", "JSP", "Servlets", "Bootstrap"],
+    status: "Completed",
+    type: "Solo",
+    image: "/images/projects/E-Shift.png",
+    video: null,
+    githubLink: "https://github.com/Fayas-007/E-Shift",
+    liveLink: null,
+  },
+  {
+    id: 6,
+    title: "Chatbot Using Java & NLP",
+    description:
+      "Intelligent conversational chatbot leveraging Java and NLP libraries for natural language understanding, intent classification, and context-aware response generation.",
+    techStack: ["Java", "NLP", "OpenNLP", "Maven"],
+    status: "Completed",
+    type: "Group",
+    image: "/videos/projects/chatbot.gif",
+    video: null,
+    githubLink: "https://github.com/Fayas-007/Chat-Bot-",
+    liveLink: null,
+  },
+  {
+    id: 7,
+    title: "BrightPath Web Application",
+    description:
+      "A web application designed to guide users along personalised learning or career pathways, featuring progress tracking, resource recommendations, and an intuitive dashboard.",
+    techStack: ["React", "Node.js", "MongoDB", "Express"],
+    status: "In Progress",
+    type: "Solo",
+    image: "/images/projects/Brightpath.png",
+    video: null,
+    githubLink: "#",
+    liveLink: null,
+  },
+]
+
+export default projects
