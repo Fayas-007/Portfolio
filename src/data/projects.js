@@ -4,7 +4,7 @@ const projects = [
     title: "Gym Website",
     description:
       "Fully responsive and interactive gym website built as a prototype demonstrating web development skills — featuring class schedules, membership plans, and a dynamic UI.",
-    techStack: ["HTML", "CSS", "JavaScript", "Responsive Design"],
+    techStack: ["HTML", "CSS", "JavaScript", "PHP", "Responsive Design"],
     status: "Completed",
     type: "Group",
     image: "/videos/projects/Gym-gif.gif",
@@ -17,7 +17,7 @@ const projects = [
     title: "StarEvents — Event Management System",
     description:
       "Academic software engineering project for managing events, bookings, and registrations. Features full CRUD operations for events, a structured booking system, and a clean user-friendly interface built with C# and .NET.",
-    techStack: ["C#", ".NET", "Windows Forms", "Visual Studio", "Git"],
+    techStack: ["C#", "ASP.NET Core Identity", " Entity Framework (EF) Core Migrations", "MVC"],
     status: "Completed",
     type: "Group",
     image: "/images/projects/StarEvents.png",
@@ -30,7 +30,7 @@ const projects = [
     title: "Restaurant Website",
     description:
       "Sample restaurant website showcasing a clean design approach and modern web development skills, complete with menu presentation and contact sections.",
-    techStack: ["HTML", "CSS", "JavaScript"],
+    techStack: ["HTML", "CSS", "PHP", "MySQL", "Responsive Design"],
     status: "Completed",
     type: "Group",
     image: "/videos/projects/regio-crust.gif",
@@ -56,7 +56,7 @@ const projects = [
     title: "E-Shift Household Goods Shifting System",
     description:
       "Full-stack system for managing transport jobs, customers, and logistics with role-based access control, real-time job tracking, and an admin dashboard.",
-    techStack: ["Java", "MySQL", "JSP", "Servlets", "Bootstrap"],
+    techStack: ["C#", "Windows Forms", "MySQL"],
     status: "Completed",
     type: "Solo",
     image: "/images/projects/E-Shift.png",
@@ -69,7 +69,7 @@ const projects = [
     title: "Chatbot Using Java & NLP",
     description:
       "Intelligent conversational chatbot leveraging Java and NLP libraries for natural language understanding, intent classification, and context-aware response generation.",
-    techStack: ["Java", "NLP", "OpenNLP", "Maven"],
+    techStack: ["Java", "NLP", "Maven"],
     status: "Completed",
     type: "Group",
     image: "/videos/projects/chatbot.gif",
